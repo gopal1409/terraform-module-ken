@@ -8,3 +8,14 @@ resource "azurerm_resource_group" "example" {
   location = var.resource_group_location
   tags = local.common_tags
 }
+
+locals {
+  owners = var.business_devision
+  environment = var.environment
+  resource_name_prefix = "${var.business_devision}-${var.environment}"
+  #sap-dev
+  common_tags = {
+    owners = local.owners #smile
+    environment = local.environment #cry
+  }
+}
